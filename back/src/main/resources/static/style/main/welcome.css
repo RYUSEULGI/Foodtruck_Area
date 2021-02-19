@@ -1,0 +1,21 @@
+.welcome-txt {
+    background-color: var(--white-color);
+    width: 45rem;
+    height: 60rem;
+    margin: 0 auto;
+    border-radius: 0.7rem;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.welcome-txt p {
+    margin: 12rem 0;
+}
+
+.welcome-txt a {
+    margin-top: 5rem;
+    width: 100%;
+    padding: 1rem 0;
+    border-radius: 0.7rem;
+    font-size: 1.3rem;
+}

@@ -1,0 +1,88 @@
+.section__community .write {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--point-color);
+    border-radius: 10rem;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+}
+
+.section__community .write:hover {
+    opacity: 50%;
+    transition: background-color 150ms ease-in;
+}
+
+.section__community .write i {
+    color: var(--white-color);
+    font-size: 2.3rem !important;
+    margin: 1.2rem;
+}
+
+.section__community .empty {
+    margin-top: 10rem;
+    align-items: center;
+}
+
+.section__community .written-form {
+    width: 80%;
+    height: auto;
+    box-sizing: border-box;
+    box-shadow: var(--nomal-shadow);
+    padding: 2rem;
+    display: block;
+    margin: 0 auto;
+}
+
+.section__community .title {
+    font-size: var(--small-size);
+    height: 10rem;
+}
+
+.section__community .profile {
+    width: 8rem;
+    height: 8rem;
+    background-color: var(--point-color);
+    border-radius: 10rem;
+    float: left;
+    margin-right: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section__community .userEmail {
+    float: left;
+    position: relative;
+    top: 55%;
+}
+
+.section__community .date {
+    float: right;
+    position: relative;
+    top: 55%;
+}
+
+.section__community .contents {
+    height: 10%;
+    padding: 1rem 0;
+}
+
+.section__community .bottom {
+    display: flex;
+}
+
+.section__community .comments {
+    margin-right: 1rem;
+}
+
+.section__community .comments i,
+.section__community .like i {
+    color: var(--grey-color);
+}
+
+.section__community .comments i:hover,
+.section__community .like i:hover {
+    color: var(--point-color);
+}

@@ -1,0 +1,16 @@
+.section__writeNew .txt {
+    width: 100%;
+    box-sizing: border-box;
+    height: 30rem;
+    border: 0.1rem solid var(--grey-color);
+    border-radius: 0.7rem;
+    padding: 2rem;
+}
+
+.section__writeNew textarea {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    resize: none;
+}

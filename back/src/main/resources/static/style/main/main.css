@@ -1,0 +1,115 @@
+/* ADDRESS */
+.section__address form .dropdown {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0.8rem;
+    display: inline-flex;
+}
+
+.section__address form .dropdown-toggle {
+    width: 100%;
+    height: 3rem;
+    padding: 0 1.6rem;
+    line-height: 1.5;
+    color: rgba(133, 136, 150, 0.5);
+    text-align: center;
+    border: 1px solid var(--grey-color);
+    border-radius: 0.7rem;
+    transition: border-color 100ms ease-in;
+    position: relative;
+}
+
+.section__address form .dropdown-toggle.select {
+    color: #3f4150;
+    border-color: var(--point-color);
+}
+
+.section__address .dropdown-toggle:active {
+    border-color: rgba(224, 226, 231, 1);
+}
+
+.section__address form .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 9;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    border-radius: 0.7rem;
+    background-color: #fff;
+    box-shadow: 0 4px 9px 0 rgba(224, 226, 231, 0.75);
+    transition: border-color 200ms ease-in, padding 200ms ease-in,
+        max-height 200ms ease-in, box-shadow 200ms ease-in;
+}
+
+form .dropdown-menu.active {
+    max-height: 80rem;
+    border-color: rgba(224, 226, 231, 0.5);
+    box-shadow: 0 4px 9px 0 rgba(63, 65, 80, 0.1);
+    border: 0.1rem solid var(--point-color);
+}
+
+.section__address form .dropdown-cont {
+    text-align: left;
+    width: 100%;
+    padding: 1rem 2rem;
+    outline: none;
+}
+
+.section__address form .dropdown-cont:hover {
+    color: var(--point-color);
+    font-weight: 700;
+}
+
+.section__address form .search-btn {
+    width: 10%;
+    height: 3rem;
+    border-radius: 0.7rem;
+    text-align: center;
+    background-color: var(--point-color);
+    color: var(--white-color);
+    transition: background-color 150ms ease-in;
+}
+
+.section__address form .search-btn:disabled {
+    background-color: #e0e2e7;
+    cursor: not-allowed;
+}
+
+/* SEARCH */
+.section__search {
+    height: auto;
+}
+
+.section__search .search-ttl {
+    text-align: left;
+}
+
+/* grid활용하기 */
+.section__search .search-popular,
+.section__search .search-my {
+    display: flex;
+}
+
+.section__search .search-box {
+    width: 180px;
+    height: 50px;
+    border: 1px solid var(--black-color);
+    box-shadow: 0 4px 9px 0 rgba(63, 65, 80, 0.1);
+    border-radius: 0.7rem;
+    padding: 1rem;
+    margin-right: 4rem;
+}
+
+.section__search .search-box img {
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid var(--black-color);
+    border-radius: 10rem;
+    text-align: left;
+}
+
+.section__search .search-box p {
+    text-align: center;
+}

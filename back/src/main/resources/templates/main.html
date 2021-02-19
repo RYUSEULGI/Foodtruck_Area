@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <title>푸드트럭</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/style/common.css}" rel="stylesheet" />
+    <link th:href="@{/style/main/main.css}" rel="stylesheet" />
+</head>
+<body>
+    <div class="body__container">
+
+        <header class="section">
+            <div class="logo">
+                <img src="" alt="">
+            </div>
+            <h1>사이트 이름</h1>
+        </header>
+        
+        <aside class="section">
+            <button>사이드바 토글버튼</button>
+            <ul>
+                <li><a th:href="@{/main?login}">로그인</a></li>
+                <li><a th:href="@{/main?signup}">회원가입</a></li>
+                <li><a th:href="@{/main?myPage}">마이페이지</a></li>
+                <li><a th:href="@{/main?community}">커뮤니티</a></li>
+            </ul>
+        </aside>
+
+        <div class="wrap">
+
+            <section class="section__address">
+                <div class="inner">
+    
+                    <form action="">
+    
+                        <h3>검색할 지역을 선택해주세요</h3>
+                        <div class="dropdown">
+                            <button type="button" class="dropdown-toggle"></button>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item">
+                                    <button type="button" value="1" class="dropdown-cont">서울</button>
+                                </li>
+                                <li class="dropdown-item">
+                                    <button type="button" value="1" class="dropdown-cont">부산</button>
+                                </li>
+                                <li class="dropdown-item">
+                                    <button type="button" value="1" class="dropdown-cont">대구</button>
+                                </li>
+                                <li class="dropdown-item">
+                                    <button type="button" value="1" class="dropdown-cont">인천</button>
+                                </li>
+                                <li class="dropdown-item">
+                                    <button type="button" value="1" class="dropdown-cont">광주</button>
+                                </li>
+                                <li class="dropdown-item">
+                                    <button type="button" value="1" class="dropdown-cont">대전</button>
+                                </li>
+                                <li class="dropdown-item">
+                                    <button type="button" value="1" class="dropdown-cont">울산</button>
+                                </li>
+                                <li class="dropdown-item">
+                                    <button type="button" value="1" class="dropdown-cont">경기</button>
+                                </li>
+                                <li class="dropdown-item">
+                                    <button type="button" value="1" class="dropdown-cont">강원</button>
+                                </li>
+                                <li class="dropdown-item">
+                                    <button type="button" value="1" class="dropdown-cont">충북</button>
+                                </li>
+                                <li class="dropdown-item">
+                                    <button type="button" value="1" class="dropdown-cont">충남</button>
+                                </li>
+                                <li class="dropdown-item">
+                                    <button type="button" value="1" class="dropdown-cont">전북</button>
+                                </li>
+                                <li class="dropdown-item">
+                                    <button type="button" value="1" class="dropdown-cont">전남</button>
+                                </li>
+                                <li class="dropdown-item">
+                                    <button type="button" value="1" class="dropdown-cont">경북</button>
+                                </li>
+                                <li class="dropdown-item">
+                                    <button type="button" value="1" class="dropdown-cont">경남</button>
+                                </li>
+                                <li class="dropdown-item">
+                                    <button type="button" value="1" class="dropdown-cont">제주</button>
+                                </li>
+                            </ul>
+                        </div>
+    
+                        <button type="submit" class="search-btn" disabled>
+                            <a href="/list">검색</a>
+                        </button>
+                    </form>
+                </div>
+            </section>
+    
+            <!-- SEARCH -->
+            <section class="section__search ">
+                <div class="inner">
+    
+                    <h3 class="search-ttl">최다 검색 위치</h3>
+                    <div class="search-popular">
+                        <div class="search-box">
+                            <a href="#">
+                                <img src="#" alt="">
+                                <p>위치명</p>
+                                <P>X</P>
+                            </a>    
+                        </div>
+                        <div class="search-box">
+                            <a href="#">
+                                <img src="#" alt="">
+                                <p>위치명</p>
+                                <P>X</P>
+                            </a>    
+                        </div>
+
+                        <button>더보기</button>
+                    </div>
+    
+                    <h3 class="search-ttl">최근 나의 검색</h3>
+                    <div class="search-my">
+                        <div class="search-box">
+                            <a href="#">
+                                <img src="#" alt="">
+                                <p>위치명</p>
+                                <P>X</P>
+                            </a>    
+                        </div>
+                    </div>
+    
+                </div>
+            </section>
+    
+        </div>
+
+        <footer>
+            copyright
+        </footer>
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link th:href="@{/style/common.css}" rel="stylesheet" />
+    <link th:href="@{/style/community/write.css}" rel="stylesheet" />
+</head>
+
+<script>
+</script>
+<body>
+    <div class="body__container">
+        <div class="inner">
+            <h2>글쓰기</h2>
+
+            <section class="section__writeNew wrap">
+                <form action="success.html" th:action="@{write}" th:object="${community}" method="POST">
+                    <p>아이디 나오게 하기</p>
+                    <div class="txt">
+                        <textarea name="contents" th:field="*{contents}" placeholder="나누고 싶은 이야기를 작성해주세요."></textarea>
+                    </div>
+                </form>
+                    <button id="writeBtn" class="basicBtn" type="submit">등록</button>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="/js/community/submit.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link th:href="@{/style/common.css}" rel="stylesheet" />
+    <link th:href="@{/style/main/signForm.css}" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="body__container">
+        <div class="inner">
+
+            <h2>🌭회원가입🌭</h2>
+
+            <div class="signup-form">
+                <form action="welcome.html" th:action="@{/welcome}" th:object="${member}" method="post">
+                    <fieldset>
+                        <div class="input-wrap">
+                            <input type="email" name="email" th:field="*{userEmail}" autocomplete="off"  placeholder="이메일">
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="input-wrap">
+                            <input type="password" name="password" th:field="*{userPw}" autocomplete="off" placeholder="비밀번호">
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="input-wrap">
+                            <input type="tel" name="tel" th:field="*{userPhoneNumber}" autocomplete="off" placeholder="휴대전화 번호(숫자만)">
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="input-wrap">
+                            <ul class="checkboxList">
+                                <li>
+                                    <input type="checkbox" name="checkbox" id="check-all"/>
+                                    <label>약관에 모두 동의</label>
+                                </li>
+                                <hr>
+                                <li>
+                                    <input type="checkbox" name="checkbox" id="check-1"/>
+                                    <label for="">[필수] 이용약관 동의</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="checkbox" id="check-2"/>
+                                    <label for="">[필수] 개인정보 수집 및 이용 동의</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="checkbox" id="check-3"/>
+                                    <label for="">[필수] 제3자 정보 제공 동의</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="checkbox" id="check-4"/>
+                                    <label for="">[선택] 마케팅정보 수신 동의</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </fieldset>
+                    <button class="basicBtn" type="submit">회원 가입하기</button>
+                </form>
+            </div>  
+
+        </div>
+    </div>
+
+    <script src="/js/checkbox.js"></script>
+</body>
+</html>

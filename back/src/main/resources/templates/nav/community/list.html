@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+
+    <link th:href="@{/style/common.css}" rel="stylesheet" />
+    <link th:href="@{/style/community/list.css}" rel="stylesheet" />
+</head>
+<body>
+    <div class="body__container">
+        <div class="inner">
+
+            <h2>커뮤니티</h2>
+            
+            <section class="section__community  wrap">
+
+                <div class="write">
+                    <a href="write.html" th:href="@{/community?write}">
+                        <i class="far fa-edit"></i>
+                    </a>
+                </div>
+
+                <div class="empty" th:if="${#lists.isEmpty(list)}">
+                    작성된 글이 없습니다.
+                </div>
+
+                <div class="written-form" th:each ="community : ${list}">
+                    <div class="title">
+                        <div class="profile">프로필</div>
+                        <div class="userEmail">아이디</div>
+                        <div class="date" th:text="${#dates.format(community.date), 'yyyy-MM-dd HH:mm')}">날짜</div>
+                    </div>
+                    <div class="contents" th:text ="${community.contents}">내용</div>
+                    <div class="bottom">
+                        <div class="comments">
+                            <a href="#">
+                                <i class="far fa-comments"></i>
+                                <span>0</span>
+                            </a>
+                        </div>
+                        <div class="like">
+                            <a href="#">
+                                <i class="far fa-heart"></i>
+                                <span>0</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>
