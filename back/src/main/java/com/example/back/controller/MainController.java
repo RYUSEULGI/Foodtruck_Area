@@ -1,9 +1,11 @@
-package com.example.back.Controller;
+package com.example.back.controller;
 
 import com.example.back.entity.Member;
+import com.example.back.service.CommunityService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/")
 public class MainController {
     private static final Logger log = LoggerFactory.getLogger(MainController.class);
+
+    @Autowired
+    private CommunityService service;
 
     @GetMapping("main")
     public String getMain() {
@@ -51,10 +56,9 @@ public class MainController {
     }
 
     @RequestMapping(value = "main", method = RequestMethod.GET, params = "community")
-    public String getCommunity(Model model) {
+    public String getCommunity(Model model) throws Exception {
         log.info("getCommunity()");
-
-        model.addAttribute("member", new Member());
+        model.addAttribute("list", service.list());
 
         return "nav/community/list";
     }
