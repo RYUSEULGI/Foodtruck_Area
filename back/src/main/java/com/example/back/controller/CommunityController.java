@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
 
 @Controller
 @RequestMapping(value = "/community")
@@ -20,15 +20,6 @@ public class CommunityController {
 
     @Autowired
     private CommunityService service;
-
-    // community 정보 이용
-    // @RequestMapping(value = "community", method = RequestMethod.GET, params =
-    // "write")
-    // public String getWrite(Community community) {
-    // log.info("getWrite()");
-
-    // return "nav/community/write";
-    // }
 
     @GetMapping("/list")
     public String getCommunityList(Model model) throws Exception {
@@ -45,15 +36,6 @@ public class CommunityController {
         return "nav/community/write";
     }
 
-    // @RequestMapping(value = "main", method = RequestMethod.POST)
-    // public String doWrite(Community community, Model model) throws Exception {
-    // log.info("doWrite()");
-    // service.write(community);
-    // model.addAttribute("list", service.list());
-
-    // return "nav/community/list";
-    // }
-
     @PostMapping("/list")
     public String doWrite(Community community, Model model) throws Exception {
         log.info("doWrite()");
@@ -64,10 +46,11 @@ public class CommunityController {
     }
 
     @GetMapping("/check")
-    public String getRemove(int listNo, Model model) throws Exception {
+    public String getRemove(Community community, Model model) throws Exception {
         log.info("getRemove()");
-        // model.addAttribute(community.getListNo());
-        model.addAttribute(service.comment(listNo));
+        model.addAttribute(community.getListNo());
+        log.info("listNo" + community.getListNo());
+
         return "nav/community/check";
     }
 
@@ -75,8 +58,9 @@ public class CommunityController {
     public String doRemove(int listNo, Model model) throws Exception {
         log.info("doRemove()");
         service.remove(listNo);
+        model.addAttribute("msg", "삭제 되었습니다.");
 
-        return "nav/community/list";
+        return "nav/community/success";
     }
 
     @GetMapping("/modify")
@@ -95,4 +79,5 @@ public class CommunityController {
 
         return "nav/community/comment";
     }
+
 }

@@ -52,36 +52,38 @@ public class CommunityRepository {
     }
 
     public Community comment(Integer listNo) throws Exception {
-        log.info("comment()");
-
         List<Community> results = jdbcTemplate.query(
-                "select list_no, contents, writer, reg_date," + "from community where list_no > ? ",
+            "select list_no, contents, writer, reg_date " +
+                    "from community where list_no = ?",
 
-                new RowMapper<Community>() {
-                    @Override
-                    public Community mapRow(ResultSet rs, int rowNum) throws SQLException {
-                        Community community = new Community();
-                        community.setListNo(rs.getInt("list_no"));
-                        community.setWriter(rs.getString("writer"));
-                        community.setRegDate(rs.getDate("reg_date"));
-                        community.setContents(rs.getString("contents"));
+            new RowMapper<Community>() {
+                @Override
+                public Community mapRow(ResultSet rs, int rowNum)
+                        throws SQLException {
 
-                        return community;
-                    }
-                }, listNo);
+                    Community community = new Community();
+                    community.setListNo(rs.getInt("list_no"));
+                    community.setContents(rs.getString("contents"));
+                    community.setWriter(rs.getString("writer"));
+                    community.setRegDate(rs.getDate("reg_date"));
+
+                    return community;
+                }
+            }, listNo
+        );
         return results.isEmpty() ? null : results.get(0);
     }
 
     public void remove(Integer listNo) throws Exception {
-        log.info("remove()");
         String query = "delete from community where list_no = ?";
         jdbcTemplate.update(query, listNo);
     }
 
     public void modify(Community community) throws Exception {
-        log.info("modify()");
-        String query = "update community set contents = ?" + "where list_no = ?";
-        jdbcTemplate.update(query, community.getContents(), community.getListNo());
+        String query = "update community set contents = ? " +
+                "where list_no = ?";
+
+        jdbcTemplate.update( query, community.getContents(), community.getListNo());
     }
 
 }

@@ -33,7 +33,8 @@ body {
 
 h1,
 tr,
-td {
+td,
+h3 {
     margin: 0;
     padding: 0;
 }
@@ -48,6 +49,12 @@ li {
 a {
     text-decoration: none;
     color: var(--black-color);
+}
+
+textarea {
+    outline: none;
+    border: none;
+    resize: none;
 }
 
 .wrap {
@@ -88,3 +95,86 @@ button {
 footer {
     margin: 4rem 0;
 }
+
+
+/* COMMUNITY-FORM */
+.written-form {
+    width: 80%;
+    height: auto;
+    box-sizing: border-box;
+    box-shadow: var(--nomal-shadow);
+    padding: 2rem;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 2.5rem;
+}
+
+.written-form .title {
+    font-size: var(--small-size);
+    height: 10rem;
+}
+
+.written-form .profile {
+    width: 8rem;
+    height: 8rem;
+    background-color: var(--point-color);
+    border-radius: 10rem;
+    float: left;
+    margin-right: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.written-form .userEmail {
+    float: left;
+    position: relative;
+    top: 55%;
+}
+
+.written-form .date {
+    float: right;
+    position: relative;
+    top: 55%;
+}
+
+.written-form .contents {
+    padding: 1rem 0 1.5rem 0;
+    text-align: left;
+}
+
+.written-form .bottom {
+    display: flex;
+    position: relative;
+    border-top: .1rem solid var(--grey-color);
+    padding-top: 1rem;
+}
+
+.written-form .comments {
+    margin-right: 1rem;
+}
+
+.written-form .modify{
+    position: absolute;
+    right: 6rem;
+}
+
+.written-form .remove{
+    position: absolute;
+    right: 0;
+}
+
+.written-form .comments i,
+.written-form .like i,
+.written-form .modify i,
+.written-form .remove i  {
+    color: var(--grey-color);
+}
+
+.written-form .comments:hover i,
+.written-form .like :hover i,
+.written-form .modify:hover i,
+.written-form .remove:hover i {
+    color: var(--point-color);
+}
+

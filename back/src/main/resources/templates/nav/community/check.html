@@ -18,7 +18,6 @@
             formObj.attr("action", "remove");
             formObj.submit();
         })
-
         $("#btnList").on("click", function() {
             self.location = "list"
         })
@@ -30,7 +29,10 @@
 
             <h2></h2>
 
-            <div id="community" class="wrap">
+            <div class="wrap">
+                <form id="community" th:object="${community}" method="post">
+                    <input type="hidden" name="listNo" th:field="*{listNo}"/>
+                </form>
                 <p>정말 삭제 하시겠습니까?</p>
                 <button id="btnRemove" type="submit">확인</button>
                 <button id="btnList" type="submit">취소</button>
