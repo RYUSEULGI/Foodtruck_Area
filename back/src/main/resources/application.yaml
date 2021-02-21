@@ -3,7 +3,7 @@ server:
 
 spring:
     datasource:
-        url: jdbc:mysql://localhost/foodtruck?serverTimezone=UTC&useSSL=false
+        url: jdbc:mysql://localhost/foodtruck
         username: seulgi
         password: dkdlxl123
         driverClassName: com.mysql.cj.jdbc.Driver

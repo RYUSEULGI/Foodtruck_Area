@@ -11,5 +11,5 @@ public class Community {
     private int listNo;
     private String contents;
     private String writer;
-    private Date reg_date;
+    private Date regDate;
 }

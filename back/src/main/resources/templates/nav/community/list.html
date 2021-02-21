@@ -20,7 +20,7 @@
             <section class="section__community  wrap">
 
                 <div class="write">
-                    <a href="write.html" th:href="@{/community?write}">
+                    <a href="write.html" th:href="@{/community/write}">
                         <i class="far fa-edit"></i>
                     </a>
                 </div>
@@ -31,14 +31,15 @@
 
                 <div class="written-form" th:each ="community : ${list}">
                     <div class="title">
+                        <div class="listNo" th:text="${community.listNo}" hidden></div>
                         <div class="profile">프로필</div>
-                        <div class="userEmail">아이디</div>
-                        <div class="date" th:text="${#dates.format(community.date), 'yyyy-MM-dd HH:mm')}">날짜</div>
+                        <div class="userEmail" th:text=" 'by ' + ${community.writer}"></div>
+                        <div class="date" th:text="${#dates.format(community.regDate, 'yyyy-MM-dd HH:mm')}">날짜</div>
                     </div>
                     <div class="contents" th:text ="${community.contents}">내용</div>
                     <div class="bottom">
                         <div class="comments">
-                            <a href="#">
+                            <a href="comment.html" th:href="@{/community/comment}">
                                 <i class="far fa-comments"></i>
                                 <span>0</span>
                             </a>
@@ -47,6 +48,18 @@
                             <a href="#">
                                 <i class="far fa-heart"></i>
                                 <span>0</span>
+                            </a>
+                        </div>
+                        <div class="modify">
+                            <a href="modify.html" th:href="@{/community/modify}">
+                                <i class="far fa-trash-alt"></i>
+                                <span>수정</span>
+                            </a>
+                        </div>
+                        <div class="remove">
+                            <a href="check.html" th:href="@{/community/check}">
+                                <i class="far fa-trash-alt"></i>
+                                <span>삭제</span>
                             </a>
                         </div>
                     </div>

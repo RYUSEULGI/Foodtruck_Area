@@ -36,7 +36,7 @@ public class CommunityRepository {
                         Community community = new Community();
                         community.setListNo(rs.getInt("list_no"));
                         community.setWriter(rs.getString("writer"));
-                        community.setReg_date(rs.getDate("reg_date"));
+                        community.setRegDate(rs.getDate("reg_date"));
                         community.setContents(rs.getString("contents"));
 
                         return community;
@@ -47,9 +47,41 @@ public class CommunityRepository {
 
     public void write(Community community) throws Exception {
         log.info("write()");
-
         String query = "insert into community(contents, writer) " + "values(?, ?)";
-        jdbcTemplate.update(query, community.getWriter(), community.getContents());
+        jdbcTemplate.update(query, community.getContents(), community.getWriter());
+    }
+
+    public Community comment(Integer listNo) throws Exception {
+        log.info("comment()");
+
+        List<Community> results = jdbcTemplate.query(
+                "select list_no, contents, writer, reg_date," + "from community where list_no > ? ",
+
+                new RowMapper<Community>() {
+                    @Override
+                    public Community mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        Community community = new Community();
+                        community.setListNo(rs.getInt("list_no"));
+                        community.setWriter(rs.getString("writer"));
+                        community.setRegDate(rs.getDate("reg_date"));
+                        community.setContents(rs.getString("contents"));
+
+                        return community;
+                    }
+                }, listNo);
+        return results.isEmpty() ? null : results.get(0);
+    }
+
+    public void remove(Integer listNo) throws Exception {
+        log.info("remove()");
+        String query = "delete from community where list_no = ?";
+        jdbcTemplate.update(query, listNo);
+    }
+
+    public void modify(Community community) throws Exception {
+        log.info("modify()");
+        String query = "update community set contents = ?" + "where list_no = ?";
+        jdbcTemplate.update(query, community.getContents(), community.getListNo());
     }
 
 }
