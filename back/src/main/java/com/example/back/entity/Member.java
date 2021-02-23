@@ -8,5 +8,5 @@ import lombok.Setter;
 public class Member {
     private String userEmail;
     private String userPw;
-    private String userPhoneNumber;
+    private int userPhoneNumber;
 }

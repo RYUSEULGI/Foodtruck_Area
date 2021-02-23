@@ -36,17 +36,6 @@ public class MainController {
         return "nav/signup";
     }
 
-    @PostMapping("welcome")
-    public String getWelcome(Member member, Model model) {
-        log.info("getWelcome()");
-        log.info("userEmail : " + member.getUserEmail());
-        log.info("userPw : " + member.getUserPw());
-        log.info("userPhoneNumber : " + member.getUserPhoneNumber());
-
-        model.addAttribute("email", member.getUserEmail());
-        return "nav/welcome";
-    }
-
     @RequestMapping(value = "main", method = RequestMethod.GET, params = "myPage")
     public String getmyPage(Model model) {
         log.info("getMyPage()");
