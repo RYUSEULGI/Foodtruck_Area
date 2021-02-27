@@ -1,0 +1,106 @@
+.wrap {
+	height: auto;
+}
+
+.section__community .write {
+	display: block;
+	width: 3.5rem;
+	height: 3.5rem;
+	background-color: var(--point-color);
+	border-radius: 10rem;
+	position: absolute;
+	top: 10%;
+	right: 5%;
+	font-size: 2rem;
+}
+
+.section__community .write:hover {
+	opacity: 50%;
+	transition: background-color 150ms ease-in;
+}
+
+.section__community .empty {
+	margin: 10rem 0 20rem 0;
+	align-items: center;
+}
+
+/* WRITTEN-FORM */
+.written-form {
+	width: 80%;
+	height: auto;
+	box-sizing: border-box;
+	box-shadow: var(--nomal-shadow);
+	padding: 2rem;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 2.5rem;
+}
+
+.written-form .title {
+	font-size: var(--small-size);
+	height: 10rem;
+}
+
+.written-form .profile {
+	width: 6rem;
+	height: 6rem;
+	background-color: var(--point-color);
+	border-radius: 10rem;
+	float: left;
+	margin-right: 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.written-form .userEmail {
+	float: left;
+	position: relative;
+	top: 55%;
+}
+
+.written-form .date {
+	float: right;
+	position: relative;
+	top: 55%;
+}
+
+.written-form .contents {
+	padding: 1rem 0 1.5rem 0;
+	text-align: left;
+}
+
+.written-form .bottom {
+	display: flex;
+	position: relative;
+	border-top: 0.1rem solid var(--grey-color);
+	padding-top: 1rem;
+}
+
+/* .written-form .comments {
+    margin-right: 1rem;
+}
+
+.written-form .modify{
+    position: absolute;
+    right: 6rem;
+}
+
+.written-form .remove{
+    position: absolute;
+    right: 0;
+}
+
+.written-form .comments i,
+.written-form .like i,
+.written-form .modify i,
+.written-form .remove i  {
+    color: var(--grey-color);
+}
+
+.written-form .comments:hover i,
+.written-form .like :hover i,
+.written-form .modify:hover i,
+.written-form .remove:hover i {
+    color: var(--point-color);
+} */
