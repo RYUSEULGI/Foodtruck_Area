@@ -1,83 +1,76 @@
 package com.example.back.controller;
 
+import java.util.List;
+
 import com.example.back.entity.Community;
 import com.example.back.service.CommunityService;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import lombok.extern.java.Log;
 
-@Controller
-@RequestMapping(value = "/community")
+@Log
+@CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*")
+@RestController
+@RequestMapping("/communities")
 public class CommunityController {
-    private static final Logger log = LoggerFactory.getLogger(CommunityController.class);
 
     @Autowired
     private CommunityService service;
 
-    @GetMapping("/list")
-    public String getCommunityList(Model model) throws Exception {
-        log.info("getCommunityList()");
-        model.addAttribute("list", service.list());
+    @GetMapping("")
+    public ResponseEntity<List<Community>> getList() throws Exception {
+        log.info("get CommunityList()");
 
-        return "nav/community/list";
+        return new ResponseEntity<>(service.list(), HttpStatus.OK);
     }
 
-    @GetMapping("/write")
-    public String getWrite(Community community) {
-        log.info("getWrite()");
-
-        return "nav/community/write";
-    }
-
-    @PostMapping("/list")
-    public String doWrite(Community community, Model model) throws Exception {
+    @PostMapping("")
+    public ResponseEntity<Community> doWrite(@Validated @RequestBody Community community,
+            UriComponentsBuilder uriBuilder) throws Exception {
         log.info("doWrite()");
         service.write(community);
-        model.addAttribute("list", service.list());
 
-        return "nav/community/list";
+        return new ResponseEntity<>(community, HttpStatus.OK);
     }
 
-    @GetMapping("/check")
-    public String getRemove(Community community, Model model) throws Exception {
-        log.info("getRemove()");
-        model.addAttribute(community.getListNo());
-        log.info("listNo" + community.getListNo());
-
-        return "nav/community/check";
-    }
-
-    @PostMapping("/remove")
-    public String doRemove(int listNo, Model model) throws Exception {
+    @DeleteMapping("/{listNo}")
+    public ResponseEntity<Void> remove(@PathVariable("listNo") int listNo) throws Exception {
         log.info("doRemove()");
         service.remove(listNo);
-        model.addAttribute("msg", "삭제 되었습니다.");
 
-        return "nav/community/success";
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/modify")
-    public String getModify(int listNo, Model model) throws Exception {
+    @PutMapping("/{listNo}")
+    public ResponseEntity<Community> modify(@PathVariable("listNo") int listNo,
+            @Validated @RequestBody Community community) throws Exception {
         log.info("getModify()");
+        community.setListNo(listNo);
+        service.modify(community);
 
-        model.addAttribute(service.comment(listNo));
-
-        return "nav/community/modify";
+        return new ResponseEntity<>(community, HttpStatus.OK);
     }
 
-    @GetMapping("/comment")
-    public String getComment(int listNo, Model model) throws Exception {
+    @GetMapping("/{listNo}")
+    public ResponseEntity<Community> comment(@PathVariable("listNo") int listNo) throws Exception {
         log.info("getComment()");
-        model.addAttribute(service.comment(listNo));
+        Community community = service.comment(listNo);
 
-        return "nav/community/comment";
+        return new ResponseEntity<Community>(community, HttpStatus.OK);
     }
 
 }
