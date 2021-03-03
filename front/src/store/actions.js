@@ -8,9 +8,11 @@ export default {
             commit(FETCH_COMMUNITY_LIST, res.data);
         });
     },
-    fetchCommunity ({ commit }){
+    fetchCommunity ({ commit, listNo }){
+        console.log('fetchBoard ' + commit + ', boardNo = ' + listNo);
         return axios.get(`http://localhost:7777/communities/${listNo}`)
         .then( res => {
+            console.log('res = ' + parseInt(res.data.randNumber));
             commit(FETCH_COMMUNITY, res.data);
         });
     }
