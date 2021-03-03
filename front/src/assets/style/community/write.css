@@ -1,0 +1,18 @@
+/* WRITE-FORM */
+.writer {
+	width: 5rem;
+	background-color: tomato;
+}
+
+.txt {
+	width: 100%;
+	box-sizing: border-box;
+	height: 23rem;
+	border: 0.1rem solid var(--grey-color);
+	border-radius: 0.7rem;
+	padding: 2rem;
+}
+
+.basicBtn {
+	margin-top: 4rem;
+}
