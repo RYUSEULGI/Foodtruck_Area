@@ -1,22 +1,47 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Index from '@/views/Index.vue'
+import Signup from '@/views/navbar/Signup.vue'
+import List from '@/views/community/List'
+import Write from '@/views/community/Write'
+import Modify from '@/views/community/Modify'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Index',
+    component: Index
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/signup',
+    name: 'Signup',
+    component: Signup
+  },
+  {
+    path: '/communities',
+    name: 'List',
+    components: {
+      default: List
+    }
+  },
+  {
+    path: '/communities/write',
+    name: 'Write',
+    components: {
+      default: Write
+    }
+  },
+  {
+    path: '/communities/:listNo/modify',
+    name: 'Modify',
+    components: {
+      dafalut: Modify
+    },
+    props: {
+      default: true
+    }
   }
 ]
 

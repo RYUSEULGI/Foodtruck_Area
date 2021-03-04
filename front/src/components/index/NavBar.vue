@@ -35,13 +35,13 @@
             </v-list-item-action>
 
             <v-list-item-content>
-                <v-list-item-title @click="savednews()">커뮤니티</v-list-item-title>
+                <v-list-item-title @click="community">커뮤니티</v-list-item-title>
             </v-list-item-content>
             </v-list-item>
         </v-list>
 
         <v-list>
-            <v-list-item-title class="signup">회원가입</v-list-item-title>
+            <v-list-item-title @click="signup" class="signup">회원가입</v-list-item-title>
         </v-list>
         </v-navigation-drawer>
     </div>
@@ -51,21 +51,27 @@
 import router from "@/router";
 
 export default {
-    name: "Layout",
+    name: "Navbar",
     data: () => ({
         drawer: false,
         left: false
     }),
     methods: {
         home () {
-        (window.location.pathname !== '/') ?
+            (window.location.pathname !== '/') ?
             router.push('/') : router.go(0)
+        },
+        community () {
+            (window.location.pathname !== '/communities') ?
+            this.$router.push('/communities') : router.go(0)
+        },
+        signup(){
+            (window.location.pathname !== '/signup') ?
+            this.$router.push('/signup') : router.go(0)
         }
+        
     }
 }
 </script>
 <style>
-.signup{
-    color: var(--grey-color);
-}
 </style>
