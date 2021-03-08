@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar class="navbar"/>
         <div class="body__container">
             <div class="inner">
 
@@ -59,13 +58,9 @@
 </template>
 
 <script>
-import Navbar from '@/components/index/Navbar';
 
     export default {
-        name : 'Signup',
-        components: {
-            Navbar
-        }
+        name : 'Signup'
     }
 </script>
 

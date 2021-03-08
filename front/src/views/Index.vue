@@ -1,6 +1,5 @@
 <template>
     <v-container>
-      <NavBar class="navbar"/>
         <h2>사이트이름</h2>
         <div class="wrap">
 
@@ -19,14 +18,12 @@
 
 
 <script>
-import NavBar from '@/components/index/NavBar';
 import ToggleItem from '@/components/index/ToggleItem';
 import SearchBox from '@/components/index/SearchBox';
 
 export default {
   name: 'Index',
   components: {
-    NavBar,
     ToggleItem,
     SearchBox
   }
